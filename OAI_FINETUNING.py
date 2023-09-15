@@ -128,11 +128,11 @@ if __name__=="__main__":
     promptQuery = "Which Actory played Maverick in the movie Top Gun?"
     #"What was the age of  Atakan Alaftargil who participated in olympic games held in the year 2002?"
     oaift = oaifinetuning()
-    #training_file_id,validation_file_id = oaift.uploadTuningFiles()
-    #jobid = oaift.createFineTuningJob(training_file_id,validation_file_id)
-    #jobId,jobStatus,fine_tuned_model = oaift.getFineTuningJobEvents(jobid)
+    training_file_id,validation_file_id = oaift.uploadTuningFiles()
+    jobid = oaift.createFineTuningJob(training_file_id,validation_file_id)
+    jobId,jobStatus,fine_tuned_model = oaift.getFineTuningJobEvents(jobid)
     print("Fine Tuned Model Ready for Use!")
-    oaiChatCom = oaiChatCompletion("ft:gpt-3.5-turbo-0613:personal:olympics:7yxdkrgY")
+    oaiChatCom = oaiChatCompletion(fine_tuned_model)
     oaiChatCom.fineTunedChatCompletion(promptQuery)
 
 
