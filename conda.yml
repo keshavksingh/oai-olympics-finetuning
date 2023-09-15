@@ -1,0 +1,12 @@
+channels:
+- conda-forge
+dependencies:
+- python=3.11.5
+- pip=23.2.1
+- pip:
+  - openai
+  - python-dotenv
+  - azureml-inference-server-http
+  - pandas
+  - numpy
+name: oai-env
